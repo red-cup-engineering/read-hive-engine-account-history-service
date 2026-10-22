@@ -1,5 +1,12 @@
 # @red-cup-engineering/read-hive-engine-account-history-service
 
+<!-- 561-group-standards:badges:start -->
+[![Red Cup Engineering](https://img.shields.io/badge/561%20Group-Red%20Cup%20Engineering-c0392b)](https://github.com/red-cup-engineering)
+[![License: MIT](https://img.shields.io/badge/license-MIT-c0392b)](LICENSE)
+[![Indigenous data: CARE](https://img.shields.io/badge/Indigenous%20data-CARE-4b6f44)](https://github.com/red-cup-engineering/.github/blob/main/GOVERNANCE.md)
+[![Tips welcome](https://img.shields.io/badge/tips-welcome-d4a017)](https://github.com/561-group/.github/blob/main/TIPS.md)
+<!-- 561-group-standards:badges:end -->
+
 Reads a Hive-Engine account's operation history, paged (`limit`/`offset`) from two independent public REST indexers (`accounts.hive-engine.com` and `history.hive-engine.com` by default) and witnessed against each other, over an optional `[from, to)` time range. Token transfers, staking (`tokens_stake`), unstaking, delegation, curation rewards (`comments_curationReward`/`_stake`), pool distributions, and HIVE-peg buys/withdrawals are shaped directly as ledger entries; every market or pool-swap fill (`market_buy`/`sell`/`marketSell`/`buyRemaining`, `marketpools_swapTokens`) is resolved by its transaction id through `@red-cup-engineering/read-hive-engine-fill-service` rather than re-derived, so cost-basis and witness logic for a fill lives in exactly one place. Read-only; no key is ever required or accepted.
 
 ## Operation
